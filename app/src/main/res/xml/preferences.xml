@@ -12,6 +12,12 @@
 		android:summary="@string/prefs_sound_enabled_summary"
 		android:defaultValue="true" />
 	<CheckBoxPreference
+		android:key="nepali_enabled"
+		android:title="@string/prefs_nepali_default"
+		android:summary="@string/prefs_nepali_summary"
+		android:defaultValue="true" >
+	</CheckBoxPreference>
+	<CheckBoxPreference
 		android:key="gpx.use_barometer"
 		android:title="@string/prefs_use_barometer"
 		android:summary="@string/prefs_use_barometer_summary"

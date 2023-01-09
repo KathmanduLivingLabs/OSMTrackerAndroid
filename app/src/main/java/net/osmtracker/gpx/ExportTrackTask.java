@@ -34,6 +34,7 @@ import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 import java.util.TimeZone;
 import java.util.regex.Pattern;
 
@@ -80,7 +81,7 @@ public abstract class ExportTrackTask extends AsyncTask<Void, Long, Boolean> {
 	/**
 	 * Date format for a point timestamp.
 	 */
-	private SimpleDateFormat pointDateFormatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+	private SimpleDateFormat pointDateFormatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ENGLISH);
 
 	/**
 	 * {@link Context} to get resources

@@ -2,7 +2,10 @@
 <resources>
 
 	<string name="tag.misc">Misc</string>
+	<string name="tag.community">Public</string>
+	<string name="tag.road">Road</string>
 	<string name="tag.restriction">Restriction</string>
+	<string name="tag.pollutants">Waste Disposal</string>
 	<string name="tag.car">Car</string>
 	<string name="tag.tourism">Tourism</string>
 	<string name="tag.amenity">Amenity</string>
@@ -101,5 +104,20 @@
 	<string name="tag.landuse_allotments">Allotments</string>
 	<string name="tag.landuse_cemetery">Cemetery</string>
 	<string name="tag.landuse_recreation_ground">Recreation\nground</string>
+	<string name="tag.tap_water">Water tap</string>
+	<string name="tag.hand_pump">Tubewell/Hand pump</string>
+	<string name="tag.spring">Spring</string>
+	<string name="tag.uncovered_well">Uncovered well</string>
+	<string name="tag.covered_well">Covered well</string>
+	<string name="tag.river">River</string>
+	<string name="tag.waste_land">Waste in land</string>
+	<string name="tag.waste_water">Waste in water source</string>
+	<string name="tag.waste_outlet">Factory waste outlet</string>
+	<string name="tag.bin_unclassified">Dustbin Unclassified</string>
+	<string name="tag.bin_biodegradable">Dustbin bio-degradable</string>
+	<string name="tag.bin_recyclable">Dustbin recyclable</string>
+	<string name="tag.dumping_site">Dumping site</string>
+	<string name="tag.bin_segregate">Dustbins(Segregated)</string>
+
 
 </resources>

@@ -2,6 +2,8 @@ package net.osmtracker.activity;
 
 import java.io.File;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.Date;
 import java.util.HashSet;
 
@@ -40,6 +42,8 @@ import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.location.LocationManager;
 import android.media.AudioManager;
 import android.net.Uri;
@@ -601,7 +605,7 @@ public class TrackLogger extends Activity {
 
 					AlertDialog.Builder getImageFrom = new AlertDialog.Builder(TrackLogger.this);
 					getImageFrom.setTitle("Select:");
-					final CharSequence[] opsChars = { getString(R.string.tracklogger_camera), getString(R.string.tracklogger_gallery) };
+					final CharSequence[] opsChars = { getString(R.string.tracklogger_camera) };
 					getImageFrom.setItems(opsChars, new android.content.DialogInterface.OnClickListener() {
 	
 						@Override
@@ -648,13 +652,20 @@ public class TrackLogger extends Activity {
 				// An image has been selected from the gallery, track the corresponding waypoint
 				File imageFile = popImageFile();
 				if (imageFile != null) {
-					// Copy the file from the gallery
-					Cursor c = getContentResolver().query(data.getData(), null, null, null, null);
-					c.moveToFirst();
-					String f = c.getString(c.getColumnIndex(ImageColumns.DATA));
-					c.close();
-					Log.d(TAG, "Copying gallery file '"+f+"' into '"+imageFile+"'");
-					FileSystemUtils.copyFile(imageFile.getParentFile(), new File(f), imageFile.getName());
+					// Needed to be fixed later
+					if (Build.VERSION.SDK_INT >= 19) {
+//						Uri photoUri = data.getData();
+//						FileSystemUtils.copyFile(imageFile.getParentFile(), new File(photoUri.getPath()), imageFile.getName());
+					}
+					else {
+						// Copy the file from the gallery
+						Cursor c = getContentResolver().query(data.getData(), null, null, null, null);
+						c.moveToFirst();
+						String f = c.getString(c.getColumnIndex(ImageColumns.DATA));
+						c.close();
+						Log.d(TAG, "Copying gallery file '" + f + "' into '" + imageFile + "'");
+						FileSystemUtils.copyFile(imageFile.getParentFile(), new File(f), imageFile.getName());
+					}
 					
 					// Send an intent to inform service to track the waypoint.
 					Intent intent = new Intent(OSMTracker.INTENT_TRACK_WP);

@@ -136,7 +136,7 @@
     <!-- Display track -->
     <string name="displaytrack">Display track</string>
     <string name="displaytrack_map">Display background map</string>
-    <string name="displaytrack_north">N</string>
+    <string name="displaytrack_north" translatable="false">N</string>
 
     <!-- Track detail -->
     <string name="trackdetail_save">Save</string>
@@ -199,4 +199,6 @@
     <string name="app_intro_slide2_title">Happy tracking 🗺 😎</string>
     <string name="app_intro_slide2_description">OSMTracker for Android will use your GPS location to record trackpoints and waypoints, even when the App is running in background.
 \nYour data is not used to support ads.</string>
+    <string name="prefs_nepali_default">Use Nepali as the default language</string>
+    <string name="prefs_nepali_summary">This feature enables Nepali as a default language irrespective of device locale. You need to relaunch app after applying this setting.</string>
 </resources>

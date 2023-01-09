@@ -2,6 +2,7 @@ package net.osmtracker.db;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.TimeZone;
 
 import net.osmtracker.R;
@@ -26,7 +27,7 @@ public class WaypointListAdapter extends CursorAdapter {
 	/**
 	 * Date formatter
 	 */
-	public static final SimpleDateFormat DATE_FORMATTER = new SimpleDateFormat("HH:mm:ss 'UTC'");
+	public static final SimpleDateFormat DATE_FORMATTER = new SimpleDateFormat("HH:mm:ss 'UTC'", Locale.ENGLISH);
 	static {
 		DATE_FORMATTER.setTimeZone(TimeZone.getTimeZone("UTC"));
 	}

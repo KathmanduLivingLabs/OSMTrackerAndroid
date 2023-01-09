@@ -31,6 +31,7 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.yariksoffice.lingver.Lingver;
 
 import net.osmtracker.OSMTracker;
 import net.osmtracker.R;
@@ -43,6 +44,7 @@ import net.osmtracker.util.FileSystemUtils;
 
 import java.io.File;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * Lists existing tracks. Each track is displayed using {@link RecyclerView}
@@ -89,7 +91,6 @@ public class TrackManager extends AppCompatActivity
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.trackmanager);
-
 		Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
 		setSupportActionBar(myToolbar);
 

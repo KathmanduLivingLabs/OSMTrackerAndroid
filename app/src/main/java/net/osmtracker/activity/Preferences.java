@@ -2,6 +2,7 @@ package net.osmtracker.activity;
 
 import java.io.File;
 import java.io.FilenameFilter;
+import java.util.Locale;
 
 import net.osmtracker.OSMTracker;
 import net.osmtracker.R;
@@ -12,6 +13,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 
@@ -25,8 +29,12 @@ import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.yariksoffice.lingver.Lingver;
 
 
 /**
@@ -173,6 +181,37 @@ public class Preferences extends PreferenceActivity {
 			public boolean onPreferenceClick(Preference preference) {
 				startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
 				return true;
+			}
+		});
+		pref = findPreference(OSMTracker.Preferences.KEY_NEPALI_ENABLED);
+
+		pref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+			@Override
+			public boolean onPreferenceClick(Preference preference) {
+				boolean vals = prefs.getBoolean(OSMTracker.Preferences.KEY_NEPALI_ENABLED, OSMTracker.Preferences.VAL_NEPALI_ENABLED);
+				if (vals) {
+					Locale language = new Locale("xx", "Cap");
+					Lingver.getInstance().setLocale(getApplicationContext(), language);
+					Intent i = getBaseContext().getPackageManager().getLaunchIntentForPackage( getBaseContext().getPackageName() );
+					i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+					startActivity(i);
+					finish();
+				} else {
+					Locale locale;
+					if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+						locale = Resources.getSystem().getConfiguration().getLocales().get(0);
+					} else {
+						//noinspection deprecation
+						locale = Resources.getSystem().getConfiguration().locale;
+					}
+					Lingver.getInstance().setLocale(getApplicationContext(), locale);
+					Intent i = getBaseContext().getPackageManager().getLaunchIntentForPackage( getBaseContext().getPackageName() );
+					i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+					startActivity(i);
+					finish();
+				}
+				Log.wtf("Lang", String.valueOf(vals));
+				return false;
 			}
 		});
 
