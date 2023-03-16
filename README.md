@@ -10,3 +10,7 @@ For more information about the project, documentation and bug reports please vis
 If you are interested in contribute to this project, please visit https://github.com/labexp/osmtracker-android/blob/master/CONTRIBUTING.md to know the way you could do it. 
 
 To help translate OSMTracker, please visit https://www.transifex.com/projects/p/osmtracker-android/
+
+## What's new
+1. Nepali language support
+2. Default button layout and tags are as per CAP2030Nepal project scope.
