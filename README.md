@@ -1,3 +1,9 @@
+## This is a fork of OSMTrackerAndroid app repo and is customized for CAP2030-Nepal.
+
+### What's new
+1. Nepali language support
+2. Default button layout and tags are as per CAP2030-Nepal project scope.
+
 [<img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' height="80"/>](https://play.google.com/store/apps/details?id=net.osmtracker)
 [<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/app/net.osmtracker)
 
@@ -10,7 +16,3 @@ For more information about the project, documentation and bug reports please vis
 If you are interested in contribute to this project, please visit https://github.com/labexp/osmtracker-android/blob/master/CONTRIBUTING.md to know the way you could do it. 
 
 To help translate OSMTracker, please visit https://www.transifex.com/projects/p/osmtracker-android/
-
-## What's new
-1. Nepali language support
-2. Default button layout and tags are as per CAP2030Nepal project scope.
